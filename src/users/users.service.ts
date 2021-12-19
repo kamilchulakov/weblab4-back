@@ -4,6 +4,7 @@ import { User } from './users.model';
 import { UserCreateDto } from './dto/user.create.dto';
 import { RolesService } from '../roles/roles.service';
 import { Role } from '../roles/role.model';
+import { RoleAddDto } from "./dto/role.add.dto";
 
 @Injectable()
 export class UsersService {
@@ -34,5 +35,16 @@ export class UsersService {
       include: Role,
     });
     return user;
+  }
+
+  async addRole(dto: RoleAddDto) {
+    const user = await this.getUserByLogin(dto.login);
+    const role = await this.rolesService.getRoleByName(dto.role);
+    if (role && user) {
+      // добавляем пользователю роль
+      await user.$add('role', role.id);
+      return dto;
+    }
+    throw new HttpException('Role or user not found', HttpStatus.NOT_FOUND);
   }
 }
