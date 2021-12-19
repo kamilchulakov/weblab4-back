@@ -20,7 +20,7 @@ export class RolesController {
 
   @ApiOperation({ summary: 'Used to get roles.' })
   @ApiResponse({ status: 200, type: [Role] })
-  @Roles('USER')
+  @Roles('GOD')
   @UseGuards(RolesGuard)
   @Get()
   getAll() {
