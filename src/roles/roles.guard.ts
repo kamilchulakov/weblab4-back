@@ -1,9 +1,9 @@
 import {
   CanActivate,
-  ExecutionContext,
+  ExecutionContext, HttpException, HttpStatus,
   Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+  UnauthorizedException
+} from "@nestjs/common";
 import { Observable } from 'rxjs';
 import { JwtService } from '@nestjs/jwt';
 import { Reflector } from '@nestjs/core';
@@ -36,8 +36,8 @@ export class RolesGuard implements CanActivate {
       req.user = user;
       return user.roles.some((role) => roles.include(role.value)); // проверка есть ли роль
     } catch (e) {
-      console.log(e);
-      throw new UnauthorizedException({ message: 'Unauthorized user' });
+      //console.log(e);
+      throw new HttpException('You have no rights.', HttpStatus.FORBIDDEN);
     }
   }
 }
