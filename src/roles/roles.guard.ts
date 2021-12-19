@@ -34,9 +34,9 @@ export class RolesGuard implements CanActivate {
       // декодирование юзера
       const user = this.jwtService.verify(token);
       req.user = user;
-      return user.roles.some((role) => roles.include(role.value)); // проверка есть ли роль
+      return user.roles.some((role) => roles.includes(role.name)); // проверка есть ли роль
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       throw new HttpException('You have no rights.', HttpStatus.FORBIDDEN);
     }
   }

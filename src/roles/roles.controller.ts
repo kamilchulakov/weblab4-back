@@ -7,8 +7,6 @@ import { Roles } from "./roles.metadata";
 import { RolesGuard } from "./roles.guard";
 
 @ApiTags('Roles')
-@Roles('GOD')
-@UseGuards(RolesGuard)
 @Controller('api/roles')
 export class RolesController {
   constructor(private rolesService: RolesService) {}
@@ -22,6 +20,8 @@ export class RolesController {
 
   @ApiOperation({ summary: 'Used to get roles.' })
   @ApiResponse({ status: 200, type: [Role] })
+  @Roles('USER')
+  @UseGuards(RolesGuard)
   @Get()
   getAll() {
     return this.rolesService.getAllRoles();
