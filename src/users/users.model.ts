@@ -1,12 +1,12 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-export interface UserCreateDto {
+export interface UserCreate {
   login: string;
   password: string;
 }
 
 @Table({ tableName: 'users' })
-export class User extends Model<User, UserCreateDto> {
+export class User extends Model<User, UserCreate> {
   @Column({
     type: DataType.INTEGER,
     unique: true,
