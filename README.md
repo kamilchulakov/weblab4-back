@@ -26,6 +26,19 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## About lab
+```
+Powered by:
+- Nest
+- Sequalizer
+- Swagger
+
+
+To test:
+1) npm start
+2)./curls.sh
+```
+
 ## Installation
 
 ```bash
