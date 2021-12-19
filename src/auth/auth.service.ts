@@ -53,8 +53,8 @@ export class AuthService {
       throw new HttpException('No user provided!', HttpStatus.BAD_REQUEST);
     const usr = await this.usersService.getUserByLogin(user.login);
     if (usr) {
-      const passNotEquals = await bcrypt.compare(user.password, usr.password);
-      if (!passNotEquals) {
+      const passEquals = await bcrypt.compare(user.password, usr.password);
+      if (!passEquals) {
         throw new UnauthorizedException({ message: 'Invalid password' });
       }
       return usr;
