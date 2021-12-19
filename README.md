@@ -31,12 +31,12 @@
 Powered by:
 - Nest
 - Sequalizer
-- Swagger
+- Swagger (I LOVE IT) (api/docs)
 
 
 To test:
 1) npm start
-2)./curls.sh
+2)./curls.sh or open in browser
 ```
 
 ## Installation
