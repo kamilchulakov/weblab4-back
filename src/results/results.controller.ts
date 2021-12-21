@@ -6,12 +6,13 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Result } from './results.model';
 import { ResultCreateDto } from './dto/result.create.dto';
 import { ResultsService } from './results.service';
 
+@ApiTags('Results')
 @Controller('api/results')
 export class ResultsController {
   constructor(private resultsService: ResultsService) {}
