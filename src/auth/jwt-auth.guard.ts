@@ -29,7 +29,7 @@ export class JwtAuthGuard implements CanActivate {
       req.user = user;
       return true;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       throw new UnauthorizedException({ message: 'Unauthorized user' });
     }
   }
