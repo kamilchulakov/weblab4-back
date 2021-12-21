@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Injectable,
+  Request,
   Post,
   UseGuards,
 } from '@nestjs/common';
@@ -33,6 +34,14 @@ export class UsersController {
   @Get()
   getAll() {
     return this.userService.getAllUsers();
+  }
+
+  @ApiOperation({ summary: 'Used to get current user.' })
+  @ApiResponse({ status: 200, type: User })
+  @UseGuards(JwtAuthGuard)
+  @Get('/me')
+  getMe(@Request() req) {
+    return this.userService.getUserByLogin(req.user.login);
   }
 
   @ApiOperation({ summary: 'Used to add roles' })
