@@ -9,6 +9,7 @@ import { UserRoles } from './users-roles/user-roles.model';
 import { AuthModule } from './auth/auth.module';
 import { ResultsModule } from './results/results.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
+import { Result } from './results/results.model';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
       username: process.env.DB_USER,
       password: process.env.PASSWORD,
       database: process.env.DB,
-      models: [User, Role, UserRoles],
+      models: [User, Role, UserRoles, Result],
       autoLoadModels: true,
     }),
     UsersModule,
