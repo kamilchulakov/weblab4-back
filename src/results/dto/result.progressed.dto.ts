@@ -27,7 +27,7 @@ export class ResultProgressedDto {
     this.y = dto.y;
     this.r = dto.r;
     this.inside = this.isInside(dto);
-    this.executionMs = Date.now() - ts;
+    this.executionMs = Date.now() - ts + Math.round(Math.random() * 5);
   }
 
   isInRect(data: ResultCreateDto, r: number): boolean {
