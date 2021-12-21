@@ -9,8 +9,6 @@ export class ResultsService {
   constructor(@InjectModel(Result) private resultRepository: typeof Result) {}
   async addResult(dto: ResultCreateDto, userId: number) {
     const result: ResultProgressedDto = new ResultProgressedDto(dto, userId);
-    console.log(result);
-    console.log(dto);
     return await this.resultRepository.create(dto);
   }
   async getResults(userId: number) {

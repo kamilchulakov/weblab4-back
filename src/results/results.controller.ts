@@ -25,7 +25,7 @@ export class ResultsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @ApiOperation({ summary: 'Getresults here.' })
+  @ApiOperation({ summary: 'Get results here.' })
   @ApiResponse({ status: 200, type: Result })
   @Get()
   getAllResults(@Request() req) {

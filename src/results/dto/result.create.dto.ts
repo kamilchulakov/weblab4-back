@@ -9,6 +9,4 @@ export class ResultCreateDto {
   readonly y: number;
   @ApiProperty({ example: '1', description: 'R param as num' })
   readonly r: number;
-  @ApiProperty({ example: '1', description: 'User id' })
-  userId: number;
 }

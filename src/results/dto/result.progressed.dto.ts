@@ -4,11 +4,11 @@ import { Column, DataType } from 'sequelize-typescript';
 
 export class ResultProgressedDto {
   @ApiProperty({ example: '1', description: 'X param as num' })
-  readonly x: number;
+  x: number;
   @ApiProperty({ example: '1', description: 'Y param as num' })
-  readonly y: number;
+  y: number;
   @ApiProperty({ example: '1', description: 'R param as num' })
-  readonly r: number;
+  r: number;
   @ApiProperty({ example: '1', description: 'User id' })
   userId: number;
   @ApiProperty({
@@ -17,6 +17,8 @@ export class ResultProgressedDto {
   })
   inside: boolean;
   constructor(dto: ResultCreateDto, userId: number) {
+    // close your eyes
+
     this.userId = userId;
     this.x = dto.x;
     this.y = dto.y;
