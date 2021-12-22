@@ -39,7 +39,9 @@ export class ResultProgressedDto {
   }
 
   isInCirc(data: ResultCreateDto, r: number): boolean {
-    return data.x <= 0 && data.y >= 0 && data.x ** 2 + data.y ** 2 <= r * r;
+    return (
+      data.x <= 0 && data.y >= 0 && data.x ** 2 + data.y ** 2 <= (r * r) / 4
+    );
   }
 
   isInside(data: ResultCreateDto): boolean {
