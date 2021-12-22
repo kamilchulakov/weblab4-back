@@ -16,4 +16,10 @@ export class ResultsService {
       where: { userId },
     });
   }
+
+  async deleteResults(userId: number) {
+    return await this.resultRepository.destroy({
+      where: { userId },
+    });
+  }
 }

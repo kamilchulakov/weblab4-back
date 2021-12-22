@@ -1,11 +1,11 @@
 import {
   Body,
-  Controller,
+  Controller, Delete,
   Get,
   Post,
   Request,
-  UseGuards,
-} from '@nestjs/common';
+  UseGuards
+} from "@nestjs/common";
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Result } from './results.model';
@@ -31,5 +31,13 @@ export class ResultsController {
   @Get()
   getAllResults(@Request() req) {
     return this.resultsService.getResults(req.user.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Delete results here.' })
+  @ApiResponse({ status: 200, type: String })
+  @Delete()
+  deleteResults(@Request() req) {
+    return this.resultsService.deleteResults(req.user.id);
   }
 }
