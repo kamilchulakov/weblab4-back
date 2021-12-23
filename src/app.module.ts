@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { ResultsModule } from './results/results.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { Result } from './results/results.model';
+import { AfModule } from './af/af.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { Result } from './results/results.model';
     RolesModule,
     AuthModule,
     ResultsModule,
+    AfModule,
   ],
   controllers: [],
   providers: [],

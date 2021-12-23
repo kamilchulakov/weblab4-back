@@ -31,11 +31,12 @@ export class ResultProgressedDto {
   }
 
   isInRect(data: ResultCreateDto, r: number): boolean {
-    return data.x <= data.r && data.y <= data.r && data.x >= 0 && data.y >= 0;
+    return data.x <= r && data.y <= r && data.x >= 0 && data.y >= 0;
   }
 
   isInPoly(data: ResultCreateDto, r: number): boolean {
-    return data.x >= 0 && data.y <= 0 && 2 * data.y >= -data.r + data.x;
+    if (r < 0) r = r * -1;
+    return data.x >= 0 && data.y <= 0 && 2 * data.y >= -1 * r + data.x;
   }
 
   isInCirc(data: ResultCreateDto, r: number): boolean {
@@ -45,6 +46,8 @@ export class ResultProgressedDto {
   }
 
   isInside(data: ResultCreateDto): boolean {
+    // console.log(this.isInRect(data, data.r) || this.isInCirc(data, data.r));
+    // console.log(this.isInPoly(data, data.r)); Problem in Poly
     return (
       this.isInRect(data, data.r) ||
       this.isInCirc(data, data.r) ||
