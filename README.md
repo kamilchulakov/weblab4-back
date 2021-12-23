@@ -30,7 +30,7 @@
 ```
 Powered by:
 - Nest
-- Sequalizer
+- Sequalize
 - Swagger (I LOVE IT) (api/docs)
 
 
