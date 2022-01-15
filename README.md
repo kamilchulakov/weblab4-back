@@ -38,7 +38,7 @@ To test:
 1) npm start
 2)./curls.sh or open in browser
 ```
-[Frontend](https://github.com/ulyanovskk/weblab4-vue)
+[Frontend](https://github.com/ulyanovskk/weblab4-vue3)
 ## Installation
 
 ```bash
